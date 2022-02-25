@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" href="/img/weather.png" type="image/x-icon">
+    <title>Midday</title>
+</head>
+<body>
+    {{>header}}
+        <form>
+            <input type="text" name="searchbar" placeholder="Search a location" required>
+            <button>Search</button>
+        </form>
+    <div class="main-content">
+        <p id="loading"></p>
+        <p id="location"></p>
+        <p id="time"></p>
+        <p id="temp"></p>
+        <p id="descp"></p>
+        <p id="feelslike"></p>
+        <p id="precip"></p>
+        <p id="wind-speed"></p>
+    </div>
+    {{>footer}}
+    <script src="/js/helper.js"></script>
+</body>
+</html>
