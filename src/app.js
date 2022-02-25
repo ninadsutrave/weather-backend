@@ -13,6 +13,8 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 
 //set up Express service
 const app = express();
+const port = process.env.PORT || 3000   
+
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
@@ -76,28 +78,28 @@ app.get('/weather', (req, res) => {
 
 })
 
-app.get('/products', (req, res) => {
+// app.get('/products', (req, res) => {
 
-    if(!req.query.search) {
-        return res.send({
-            error: 'You must provide a search term'
-        })
-    }
+//     if(!req.query.search) {
+//         return res.send({
+//             error: 'You must provide a search term'
+//         })
+//     }
 
-    console.log(req.query);
-    res.send({
-        products: []
-    })
-})
+//     console.log(req.query);
+//     res.send({
+//         products: []
+//     })
+// })
 
-app.get('/help/*', (req, res) => {
-    res.render('404', {
-        title: '404',
-        name: 'Ninad Sutrave',
-        errorMessage: 'Page not found!'
-    })
+// app.get('/help/*', (req, res) => {
+//     res.render('404', {
+//         title: '404',
+//         name: 'Ninad Sutrave',
+//         errorMessage: 'Page not found!'
+//     })
     
-})
+// })
 
 app.get('*', (req, res) => {
     
@@ -108,6 +110,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up on port 3000');
 })

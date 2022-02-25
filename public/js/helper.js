@@ -23,7 +23,7 @@ form.addEventListener('submit', (e) => {
     windSpeed.innerHTML = ''
     
     const address = search.value
-    const weatherUrl = 'http://localhost:3000/weather?address='+address
+    const weatherUrl = '/weather?address='+address
 
     fetch(weatherUrl)
     .then((res) => {
