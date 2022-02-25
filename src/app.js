@@ -102,11 +102,10 @@ app.get('/weather', (req, res) => {
 // })
 
 app.get('*', (req, res) => {
-    
     res.render('404', {
-        title: '404',
+        title: 'Error 404!',
         name: 'Ninad Sutrave',
-        errorMessage: 'Page not found!'
+        errorMessage: 'The page you are looking for cannot be found! Click on Weather to reach the home page.'
     })
 })
 

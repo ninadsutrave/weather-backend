@@ -40,8 +40,8 @@ form.addEventListener('submit', (e) => {
                 temp.innerHTML = data.temp + '°C'
                 descp.innerHTML = data.descp
                 feelslike.innerHTML = 'Feels Like: ' + data.feelslike + '°C'
-                precip.innerHTML = 'Precipitation: ' + data.precip + '%'
-                windSpeed.innerHTML = 'Wind Speed: ' + data.windSpeed + 'kmph'
+                precip.innerHTML = 'Precipitation: ' + data.precip + ' %'
+                windSpeed.innerHTML = 'Wind Speed: ' + data.windSpeed + ' kmph'
             }
         })
     })
