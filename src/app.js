@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import hbs from 'hbs';
 import geocode from './utils/geocode.js';
 import forecast from './utils/forecast.js';
+import reversecode from './utils/reversecode.js';
 
 //define paths for Express config
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -21,13 +22,50 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicDirectoryPath));
 
 app.get('/', (req, res) => {
+    
     res.render('index', {
         title: "Midday",
         name: "Ninad Sutrave"
     });
 })
 
+app.get('/initial', (req, res) => {
+
+    if(!req.query.lat || !req.query.long) {
+        return res.send({
+            error: 'Coordinates not found'
+        })
+    }
+    reversecode(req.query.lat, req.query.long, (error, { location } = {}) => {
+
+        if(error) {
+            //another way of writing {error:error}
+            return res.send({ error })
+        }
+
+        forecast(req.query.long, req.query.lat, (error, forecastData) => {
+
+            if(error) {
+                return res.send({ error })
+            }
+
+            res.send({
+                temp: forecastData.temp, 
+                precip: forecastData.precip,
+                descp: forecastData.descp,
+                feelslike: forecastData.feelslike,
+                time: forecastData.time,
+                windSpeed: forecastData.windSpeed,
+                location,
+            });
+    
+        })
+    })
+
+})
+
 app.get('/about', (req, res) => {
+
     res.render('about', {
         title: "Midday",
         name: "Ninad Sutrave"
