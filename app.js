@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/initial', (req, res) => {
+app.get('/coordinates', (req, res) => {
 
     if(!req.query.lat || !req.query.long) {
         return res.send({
@@ -54,7 +54,7 @@ app.get('/initial', (req, res) => {
 
 })
 
-app.get('/weather', (req, res) => {
+app.get('/location', (req, res) => {
 
     if(!req.query.address) {
         return res.send({
