@@ -1,33 +1,22 @@
 import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import hbs from 'hbs';
 import geocode from './utils/geocode.js';
 import forecast from './utils/forecast.js';
 import reversecode from './utils/reversecode.js';
-
-//define paths for Express config
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const publicDirectoryPath = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../templates/views')
-const partialsPath = path.join(__dirname, '../templates/partials')
+import cors from 'cors';
 
 //set up Express service
 const app = express();
-const port = process.env.PORT || 3000   
+const port = process.env.PORT || 5000   
 
-app.set('view engine', 'hbs');
-app.set('views', viewsPath);
-hbs.registerPartials(partialsPath);
-app.use(express.static(publicDirectoryPath));
+app.use(cors({
+    origin: "*"
+}))
 
-app.get('/', (req, res) => {
-    
-    res.render('index', {
-        title: "Midday",
-        name: "Ninad Sutrave"
-    });
-})
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
 
 app.get('/initial', (req, res) => {
 
@@ -57,19 +46,12 @@ app.get('/initial', (req, res) => {
                 time: forecastData.time,
                 windSpeed: forecastData.windSpeed,
                 location,
+                isDay: forecastData.isDay
             });
     
         })
     })
 
-})
-
-app.get('/about', (req, res) => {
-
-    res.render('about', {
-        title: "Midday",
-        name: "Ninad Sutrave"
-    })
 })
 
 app.get('/weather', (req, res) => {
@@ -109,14 +91,6 @@ app.get('/weather', (req, res) => {
 
 })
 
-app.get('*', (req, res) => {
-    res.render('404', {
-        title: 'Error 404!',
-        name: 'Ninad Sutrave',
-        errorMessage: 'The page you are looking for cannot be found! Click on Weather to reach the home page.'
-    })
-})
-
 app.listen(port, () => {
-    console.log('Server is up on port 3000');
+    console.log('Server is up on port 5000');
 })

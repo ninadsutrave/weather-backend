@@ -1,9 +1,11 @@
 import request from 'request';
+import dotenv from 'dotenv'
+dotenv.config()
 
 const forecast = (longitude, latitude, callback) => {
 
     console.log(latitude)
-    const weatherUrl  = 'http://api.weatherstack.com/current?access_key=46aad7e912177691c9842ce56cb09f80&query=' + latitude + ',' + longitude
+    const weatherUrl  = 'http://api.weatherstack.com/current?access_key=' + process.env.WEATHERSTACK_API_KEY + '&query=' + latitude + ',' + longitude
 
     request({ url: weatherUrl, json: true }, (error, {body}) => {
         if(error) {
@@ -19,7 +21,8 @@ const forecast = (longitude, latitude, callback) => {
                 descp: body.current.weather_descriptions,
                 feelslike: body.current.feelslike,
                 time: body.location.localtime,
-                windSpeed: body.current.wind_speed
+                windSpeed: body.current.wind_speed,
+                isDay: body.current.is_day
             });
         }
     })

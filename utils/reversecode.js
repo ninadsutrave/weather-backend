@@ -1,8 +1,10 @@
 import request from 'request';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const geocode = (address, callback) => {
+const reversecode = (latitude, longitude, callback) => { 
 
-    const mapsUrl  = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoibmluYWRzdXRyYXZlIiwiYSI6ImNreW5ka3ByNzJoMWoydnAwMzZubWx4dnkifQ.uyvjS6kYAXb-2zCEPjUWWw';
+    const mapsUrl  = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+longitude+','+latitude+'.json?access_token='+process.env.MAPBOX_ACCESS_TOKEN;
 
     request({ url: mapsUrl, json: true }, (error, {body}) => {
         if(error) {
@@ -13,8 +15,6 @@ const geocode = (address, callback) => {
         }
         else {
             callback(undefined, {
-                latitude: body.features[0].center[0],
-                longitude: body.features[0].center[1],
                 location: body.features[0].place_name
             });
         }
@@ -22,4 +22,4 @@ const geocode = (address, callback) => {
 
 }
 
-export default geocode;
+export default reversecode;
