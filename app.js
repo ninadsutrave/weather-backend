@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000   
 
 app.use(cors({
-    origin: "*"
+    origin: process.env.CLIENT_URL
 }))
 
 app.use(function(req, res, next) {
