@@ -22,7 +22,8 @@ const forecast = (longitude, latitude, callback) => {
                 feelslike: body.current.feelslike,
                 time: body.location.localtime,
                 windSpeed: body.current.wind_speed,
-                isDay: body.current.is_day
+                isDay: body.current.is_day,
+                humidity: body.current.humidity
             });
         }
     })
