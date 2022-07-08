@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-# MidDay Weather Application
-
-## Description
-
-As the name suggests, it is any easy to use weather web application, that can be used to fetch the real time weather information of any place on earth.
-
-Get the following information of the place you search:
-✓ Time
-
-✓ Date
-
-✓ Temperature
-
-✓ Feels Like Temperature
-
-✓ Wind Speed
-
-✓ Humidity
-
-✓ Precipitation
-
-## Preview
-
-![Demonstration](./src/assets/demo.gif)
-
-## Try it out?
-
-https://midday.netlify.app
-
-Make sure to drop me a comment when you do! :)
-=======
 # Weather App REST API
 
 ## Description
@@ -59,7 +27,12 @@ BASE URL: https://midday-weather.herokuapp.com/
   | Path Parameters  | None                                                                    |
   | Request Body     | None                                                                    |
   | URL              | https://midday-weather.herokuapp.com/coordinates?lat=53.2734&long=-7.77 |
->>>>>>> 2d009b5 (README updated)
+  
+## Front End
+
+Git repository: https://github.com/NinadSutrave/midday
+
+Live Website: https://midday.netlify.app
 
 ## License
 
