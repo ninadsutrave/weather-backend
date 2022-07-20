@@ -84,7 +84,9 @@ app.get('/location', (req, res) => {
                 time: forecastData.time,
                 windSpeed: forecastData.windSpeed,
                 location,
-                address: req.query.address
+                address: req.query.address,
+                isDay: forecastData.isDay,
+                humidity: forecastData.humidity
             });
     
         })
