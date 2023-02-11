@@ -6,7 +6,7 @@ A REST API to retrieve the real time weather information of a location or coordi
 
 ## API EndPoints
 
-BASE URL: https://midday-weather.herokuapp.com/
+BASE URL: https://midday.vercel.app/
 
 - /location
 
@@ -16,7 +16,7 @@ BASE URL: https://midday-weather.herokuapp.com/
   | Query Parameters | address                                                                   |
   | Path Parameters  | None                                                                      |
   | Request Body     | None                                                                      |
-  | URL              | https://midday-weather.herokuapp.com/location?address= Paris              |
+  | URL              | https://midday.vercel.app/location?address=Paris                          |
 
   - /location
 
@@ -26,7 +26,7 @@ BASE URL: https://midday-weather.herokuapp.com/
   | Query Parameters | lat, long                                                               |
   | Path Parameters  | None                                                                    |
   | Request Body     | None                                                                    |
-  | URL              | https://midday-weather.herokuapp.com/coordinates?lat=53.2734&long=-7.77 |
+  | URL              | https://midday.vercel.app/coordinates?lat=53.2734&long=-7.77            |
   
 ## Front End
 
