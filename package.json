@@ -1,15 +1,27 @@
 {
   "name": "web-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A REST API for a weather app that instantly retrieves the weather conditions of any place on earth",
+  "keywords": [
+    "weather",
+    "realtime weather",
+    "weather forecast"
+  ],
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Ninad Sutrave",
+    "email": "ninadsutrave@gmail.com",
+    "url": "https://ninadsutrave.in"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ninadsutrave/weather-backend"
+  },
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
